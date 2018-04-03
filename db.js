@@ -1,7 +1,7 @@
 const pg = require('pg');
-const user = require('./models/users');
+const users = require('./models/users');
 const company = require('./models/company');
-const voucher = require('./models/vouchers');
+const vouchers = require('./models/vouchers');
 
 const configs = {
   user: 'smu',
@@ -19,8 +19,8 @@ pool.on('error', function (err) {
 module.exports = {
   pool: pool,
   users: users(pool),
-  vouchers: vouchers(pool),
-  company: company(pool)
+  // vouchers: vouchers(pool),
+  // company: company(pool)
 };
 
 

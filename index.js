@@ -4,7 +4,7 @@ const handlebars = require('express-handlebars');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
-// const db = require('./db');
+const allModels = require('./db')
 
 /**
  * ===================================
@@ -25,12 +25,13 @@ app.engine('handlebars', handlebars.create().engine);
 app.set('view engine', 'handlebars');
 app.use(express.static('public'))
 
+require('./routes')(app, allModels);
+
 // Root GET request (it doesn't belong in any controller file)
 
 app.get('/', (request, response) => {
     response.render('home');
   });
-// });
 
 // Catch all unmatched requests and return 404 not found page
 app.get('*', (request, response) => {

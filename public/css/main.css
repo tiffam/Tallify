@@ -2,11 +2,10 @@
 #login_button, #register_button {
 	background-color: #F19F4D;
 	display: inline;
-	margin: 10px;
+	margin: 20px;
 	width: 100px;
 }
 
 .userlogin {
 	text-align: center;
 }
-

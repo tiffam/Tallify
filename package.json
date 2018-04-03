@@ -1,0 +1,24 @@
+{
+  "name": "tallify",
+  "version": "1.0.0",
+  "description": "Tally your vouchers with Tallify",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiffam/Tallify.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tiffam/Tallify/issues"
+  },
+  "homepage": "https://github.com/tiffam/Tallify#readme",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.8"
+  }
+}
