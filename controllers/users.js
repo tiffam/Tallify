@@ -14,25 +14,50 @@ const newForm = (request, response) => {
 //Post request for new user creation
 
 const createFunction =  (request, response) => {
-		console.log("request.body", request.body);
-		allModels.users.create(request.body, (error, queryResult) => {
-      // if (error) {
-      //   response.end('Please try again');
-      // } else {
-      //   if (queryResult.duplicate == true) {
-      //     response.send("The email has already been registered.");
-      //   } else {
-      //     response.cookie('loggedin', true);
-      //     // response.cookie('userid', queryResult.user_id);
-      		console.log(queryResult);
-      		response.redirect('/');
-      	});
-}
+  console.log("request.body", request.body);
+  allModels.users.create(request.body, (error, queryResult) => {
+    if (error) {
+      response.end('Please try again');
+    } else {
+      if (queryResult.duplicate == true) {
+        console.log(queryResult);
+        response.send("The email has already been registered.");
+      } else {
+        response.cookie('loggedin', true);
+          response.cookie('userid', queryResult.user_id);
+          console.log(queryResult);
+          response.redirect('/');
+        };
+      }
+    });
+};
 
 //Get request for login form
-const login = (request, response) => {
+const loginForm = (request, response) => {
   response.render('login');
 };
+
+//Post request for submitting completed login form
+const logon = (request, response) => {
+    allModels.users.logon(request.body, (error, queryResult) => {
+      console.log("inside allmodels in request.body", request.body);
+      if (queryResult.authenticated == false) {
+        response.redirect('new');}
+        else {
+        response.cookie('loggedIn', true);
+        console.log("queryResult", queryResult.user_id);
+        response.cookie('userid', queryResult.user_id);
+        response.redirect('welcome');
+        
+      
+      }
+    })
+  };
+
+
+// const logged_on = (request, response) => {
+//   response.render('main');
+// };
 
 
 
@@ -49,10 +74,11 @@ const login = (request, response) => {
  */
 	return {
 	  newForm : newForm,
-	  create : createFunction
+	  create : createFunction,
 	  // logout,
 	  // loginForm,
-	  // login
+    logon: logon,
+	  loginForm: loginForm
 	};
 
 }

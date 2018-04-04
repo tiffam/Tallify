@@ -1,20 +1,20 @@
-<!DOCTYPE html>
+</html><!DOCTYPE html>
 <html>
 <head>
-	<title>Login</title>
+	<title>Welcome</title>
 	<link type="text/css" rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
 </head>
+
 <body>
-	<div class="ui container">
-		<form method="POST" action="/users/logon">
-			email login:
-			<input name="email" type="text"></input>
-			password:
-			<input name="password" type="text"></input>
-			<input type="submit">
-		</form>
+
+	<div class="ui billboard test ad" data-text="Tally your vouchers with Tallify">		
 	</div>
+	<div class="ui container">
+			<p>Welcome, {{name}}<p>
+			<p>You have ${{amount}} of unspent vouchers. Do you have any vouchers for us to tally today?
+	</div>
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
 </body>
 </html>

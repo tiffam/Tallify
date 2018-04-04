@@ -23,7 +23,7 @@ app.use(cookieParser());
 // Set handlebars to be the default view engine
 app.engine('handlebars', handlebars.create().engine);
 app.set('view engine', 'handlebars');
-app.use(express.static('public'))
+app.use(express.static('public'));
 
 require('./routes')(app, allModels);
 

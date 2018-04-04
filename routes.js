@@ -16,9 +16,14 @@ module.exports = (app, allModels) => {
    */
   // CRUD users
     app.get('/users/new', users.newForm);
-    // app.get('/users/login', users.login);
+
+    app.get('/users/login', users.loginForm);
+
+    app.post('/users/logon', users.logon);
     
     app.post('/users/create', users.create);
+
+
 
       /*
    *  =========================================
