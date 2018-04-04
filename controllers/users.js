@@ -45,11 +45,11 @@ const logon = (request, response) => {
         response.redirect('new');}
         else {
         response.cookie('loggedIn', true);
-        console.log("queryResult", queryResult.user_id);
         response.cookie('userid', queryResult.user_id);
-        response.redirect('welcome');
-        
-      
+        let context = {
+          name: queryResult.user_name
+        };
+        response.render('main', context);
       }
     })
   };

@@ -4,6 +4,9 @@ module.exports = (app, allModels) => {
   const usersControllerFunction = require('./controllers/users');
   const users = usersControllerFunction(allModels);
 
+  const vouchersControllerFunction = require('./controllers/vouchers');
+  const vouchers = vouchersControllerFunction(allModels);
+
   //const users = require('./controllers/users')(allModels);
   // const vouchersControllerFunction = require('./controllers/vouchers');
   // const vouchers = vouchersControllerFunction(allModels);
@@ -24,12 +27,13 @@ module.exports = (app, allModels) => {
     app.post('/users/create', users.create);
 
 
-
       /*
    *  =========================================
    *  Vouchers
    *  =========================================
    */
   // CRUD vouchers
+
+    app.get('/vouchers/new', vouchers.voucherForm);
 
 };

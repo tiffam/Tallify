@@ -1,3 +1,4 @@
+/*///////For user module \\\\\\\\*/
 
 #login_button, #register_button {
 	background-color: #F19F4D;
@@ -9,3 +10,46 @@
 .userlogin {
 	text-align: center;
 }
+
+
+/*///////For voucher module \\\\\\\\*/
+
+#welcome {
+	color: pink;
+}
+
+.sample_voucher {
+	text-align: center;
+}
+
+div p, div {
+	position: relative;
+	text-align: center;
+}
+p {
+	position: absolute;
+	top: 0;
+	text-align: center;
+	color: #F19F4D;
+}
+
+.vouchers, #vouchers {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Oxygen', sans-serif;
+
+}
+#vouchers{
+	opacity: 0.5;
+}
+
+#box {
+	margin: 0 auto;
+	height: 300px;
+	margin: 0 auto;
+	padding-top: 13px;
+	background-image: url("/tag3.jpg");
+    background-size: cover;
+}
+
+
+

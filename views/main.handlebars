@@ -1,20 +1,47 @@
-</html><!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Welcome</title>
-	<link type="text/css" rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+
 </head>
 
-<body>
+<body class="vouchers">
+ <div class="ui secondary  menu">
+  <a class="active item" id="vouchers">
+    Home
+  </a>
+  <a class="item" id="vouchers">
+    Promotion
+  </a>
+  <a class="item" id="vouchers">
+    About us
+  </a>
+  <div class="right menu">
+    </div>
+    <a class="ui item" id="vouchers">
+      Logout
+    </a>
+  </div>
+</div>
+</div>
+  
+  <div id="box">
+    <span>Hi {{name}}, any voucher to tally today?</span>
+<button class="circular yellow small ui icon button"><i class="plus icon"></i>
+</button>
+  </div>
 
-	<div class="ui billboard test ad" data-text="Tally your vouchers with Tallify">		
-	</div>
-	<div class="ui container">
-			<p>Welcome, {{name}}<p>
-			<p>You have ${{amount}} of unspent vouchers. Do you have any vouchers for us to tally today?
-	</div>
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+	<script> $('.special.cards .image').dimmer({
+  on: 'hover'});
+</script>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
 </body>
 </html>

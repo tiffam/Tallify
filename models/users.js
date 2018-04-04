@@ -39,7 +39,7 @@ module.exports = (dbPool) => {
       			}
       			else {
       				bcrypt.compare(users.password, queryResult.rows[0].password, (err, res) => {
-      					callback(err, {authenticated: res, user_id: queryResult.rows[0].id});
+      					callback(err, {authenticated: res, user_id: queryResult.rows[0].id, user_name: queryResult.rows[0].name});
       				})
       			}
       		})
