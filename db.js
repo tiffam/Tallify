@@ -19,7 +19,7 @@ pool.on('error', function (err) {
 module.exports = {
   pool: pool,
   users: users(pool),
-  // vouchers: vouchers(pool),
+  vouchers: vouchers(pool)
   // company: company(pool)
 };
 

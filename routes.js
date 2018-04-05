@@ -36,4 +36,8 @@ module.exports = (app, allModels) => {
 
     app.get('/vouchers/new', vouchers.voucherForm);
 
+    app.post('/vouchers/main', vouchers.saveVoucher);
+
+
+
 };

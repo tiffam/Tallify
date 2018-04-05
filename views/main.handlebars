@@ -27,20 +27,38 @@
   </div>
 </div>
 </div>
-  
-  <div id="box">
-    <span>Hi {{name}}, any voucher to tally today?</span>
-<button class="circular yellow small ui icon button"><i class="plus icon"></i>
-</button>
-  </div>
 
+
+<div class="ui success message">
+  <i class="close icon"></i>
+  <div class="header">
+    {{message}}
+  </div>
+</div>
+
+
+  <div id="box">
+    <span>Hi {{name}}, any {{message2}} voucher to tally today?</span>
+<a class="circular yellow small ui icon button" href="/vouchers/new"><i class="plus icon"></i></a>
+  </div>
+    <ul>{{#each vouchers}}
+      <li>{{this}}
+      </li>
+      {{/each}}
+    </ul>
 	<script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
-	<script> $('.special.cards .image').dimmer({
-  on: 'hover'});
+	<script> $('.message .close')
+  .on('click', function() {
+    $(this)
+      .closest('.message')
+      .transition('fade')
+    ;
+  })
+;
 </script>
 
 </body>

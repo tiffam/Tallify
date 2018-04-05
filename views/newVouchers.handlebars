@@ -1,29 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Register</title>
+	<title>Add new vouchers</title>
 	<link type="text/css" rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
 </head>
 <body>
 	<div class="ui container">
-		<h1>Welcome to Tallify! Start your journey with us by creating an account</h1>
-		<form method="POST" action="/users/create">
-			<div class="user-attribute">
-				Preferred Name:
-				<input name="name" type="text">
+		<h1>Update your vouchers</h1>
+		<form class="ui tiny form" method="POST" action="/vouchers/main">
+			<!-- <div class="field">
+				<label>Voucher Issued By</label>
+				<select name="company_id" class="ui search dropdown">
+					<option value="">Select issuer</option>
+					<option value="1">Takashimaya</option>
+					<option value="2">NTUC</option>
+				</select>
+			</div> -->
+			<div class="inline fields">
+				<div class="three wide field required">
+					<input type="text" placeholder="Issuer" name="company_id">
+				</div>
+				<div class="three wide field required">
+					<input type="text" placeholder="Value in $" name="value">
+				</div>
+				<div class="five wide field">
+					<input type="text" placeholder="Expiry Date" name="expiry_date">
+				</div>
 			</div>
-			<div class="user-attribute">
-				Email Address:
-				<input name="email" type="text">
-			<div class="user-attribute">
+			<div class="field">
+				<label>Remarks</label>
+				<textarea rows="2"></textarea>
 			</div>
-				Password:
-				<input name="password" type="text">
-			</div>
-			<input type="submit">
-		</form>
-	</div>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+			<input class="ui submit button" type="Submit">
+		</div>
+	</form>
+<script
+src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+<!-- <script src="$('select.dropdown') .dropdown();"></script> -->
 </body>
 </html>

@@ -7,7 +7,7 @@ module.exports = (allModels) => {
  */
 
  //Get request for new registration form
-const newForm = (request, response) => {
+ const newForm = (request, response) => {
   response.render('new');
 };
 
@@ -24,12 +24,12 @@ const createFunction =  (request, response) => {
         response.send("The email has already been registered.");
       } else {
         response.cookie('loggedin', true);
-          response.cookie('userid', queryResult.user_id);
-          console.log(queryResult);
-          response.redirect('/');
-        };
-      }
-    });
+        response.cookie('userid', queryResult.user_id);
+        console.log(queryResult);
+        response.redirect('/');
+      };
+    }
+  });
 };
 
 //Get request for login form
@@ -39,11 +39,11 @@ const loginForm = (request, response) => {
 
 //Post request for submitting completed login form
 const logon = (request, response) => {
-    allModels.users.logon(request.body, (error, queryResult) => {
-      console.log("inside allmodels in request.body", request.body);
-      if (queryResult.authenticated == false) {
-        response.redirect('new');}
-        else {
+  allModels.users.logon(request.body, (error, queryResult) => {
+    console.log("inside allmodels in request.body", request.body);
+    if (queryResult.authenticated == false) {
+      response.redirect('new');}
+      else {
         response.cookie('loggedIn', true);
         response.cookie('userid', queryResult.user_id);
         let context = {
@@ -52,12 +52,7 @@ const logon = (request, response) => {
         response.render('main', context);
       }
     })
-  };
-
-
-// const logged_on = (request, response) => {
-//   response.render('main');
-// };
+};
 
 
 
