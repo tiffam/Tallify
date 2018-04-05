@@ -12,12 +12,29 @@ module.exports = (allModels) => {
 	};
 
 	const saveVoucherFunction = (request, response) => {
-		console.log("request.cookies.userid", request.cookies.userid);
-		allModels.vouchers.saveVoucher(request, (error, queryResult) => {
-		console.log('TEST below', queryResult);
-					response.render('main', {vouchers: ["test voucher1", "test voucher2"], message: ["Added new voucher."], message2: ["more"]});
-				})
-	}
+
+		allModels.vouchers.saveVoucher(request, (error2, queryResult2) => {
+			if(error2){
+				response.end("Error");
+			} else {
+				let array = [];
+				for(i=0; i<queryResult2.rows.length; i++){
+					array.push(queryResult2.rows[i]);
+				};
+				let context = {
+					array: array,
+					message: "added new voucher",
+					message2: "more",
+					name: array[0].name
+				}
+					
+
+					response.render('main', context);
+				}
+			})
+		}
+	
+
 
 
 
@@ -31,7 +48,7 @@ module.exports = (allModels) => {
 
  	return {
 		voucherForm: voucherForm,
-		saveVoucher: saveVoucherFunction,
+		saveVoucher: saveVoucherFunction
 	}
 }
 

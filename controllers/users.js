@@ -51,11 +51,8 @@ const logon = (request, response) => {
         let companyImageArray = [];
         let array = []
         for(let i=0; i<queryResult.queryResult.length; i++){
-          companyArray.push(queryResult.queryResult[i].company_id);
-          companyImageArray.push(queryResult.queryResult[i].company_image)
           array.push(queryResult.queryResult[i]);
-          console.log("companyArray listing", array);
-          console.log("companyArray listing id", array[0].id);
+
         }
         let context = {
           name: queryResult.user_name,
