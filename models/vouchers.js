@@ -11,13 +11,14 @@ module.exports = (dbPool) => {
 		saveVoucher: (vouchers, callback) => {
 	
 	        	console.log("saveVoucher in models");
-	        	const queryString = 'INSERT INTO vouchers (company_id, value, expiry_date, remarks) VALUES ($1, $2, $3, $4) RETURNING id';
+	        	const queryString = 'INSERT INTO vouchers (user_id, company_id, value, expiry_date, remarks) VALUES ($1, $2, $3, $4, $5) RETURNING id';
 	        	const values = 
 	        	[
-	        	vouchers.company_id,
-	        	vouchers.value,
-			    vouchers.expiry_date,
-			    vouchers.remarks
+	        	vouchers.cookies.userid,
+	        	vouchers.body.company_id,
+	        	vouchers.body.value,
+			    vouchers.body.expiry_date,
+			    vouchers.body.remarks
 			    ];
 
 // execute query
