@@ -24,9 +24,10 @@ const createFunction =  (request, response) => {
         response.send("The email has already been registered.");
       } else {
         response.cookie('loggedin', true);
-        response.cookie('userid', queryResult.user_id);
         console.log(queryResult);
-        response.redirect('/');
+        response.cookie('userid', queryResult.rows[0].id);
+        console.log(queryResult);
+        response.render('main');
       };
     }
   });
@@ -40,12 +41,12 @@ const loginForm = (request, response) => {
 //Post request for submitting completed login form
 const logon = (request, response) => {
   allModels.users.logon(request.body, (error, queryResult) => {
-    console.log("inside allmodels in request.body", request.body);
+    console.log("inside allmodels in queryResult", queryResult);
     if (queryResult.authenticated == false) {
       response.redirect('new');}
       else {
         response.cookie('loggedIn', true);
-        response.cookie('userid', queryResult.user_id);
+        response.cookie('userid', queryResult.queryResult[0].user_id);
         let companyArray = [];
         let companyImageArray = [];
         let array = []

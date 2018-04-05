@@ -14,7 +14,7 @@ module.exports = (dbPool) => {
 			bcrypt.hash(users.password, 1, (err, hashed) => {
       			if (err) console.error('error!', err);
 				// set up query
-	        	const queryString = 'INSERT INTO users (name, email, password) VALUES ($1, $2, $3)';
+	        	const queryString = 'INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING id';
 	        	const values = 
 	        	[
                   users.name,
@@ -25,6 +25,7 @@ module.exports = (dbPool) => {
 // execute query
 	      		dbPool.query(queryString, values, (error, queryResult) => {
 	      			// invoke callback function with results after query has executed
+                              console.log("queryResult from models users", queryResult);
 	      			callback(error, queryResult);
 	      		});
 	      	});
@@ -32,7 +33,7 @@ module.exports = (dbPool) => {
 
       	logon: (users, callback) => {
                   
-                  const queryString = `SELECT vouchers.company_id, vouchers.value, vouchers.expiry_date, users.name, company.id, company.company_name, company.company_image, company.shop_listing FROM ((vouchers INNER JOIN users ON vouchers.user_id = users.id) INNER JOIN company ON vouchers.company_id = company.id) WHERE email='${users.email}'`;
+                  const queryString = `SELECT vouchers.company_id, vouchers.value, vouchers.expiry_date, vouchers.user_id, users.name, company.company_name, company.company_image, company.shop_listing FROM ((vouchers INNER JOIN users ON vouchers.user_id = users.id) INNER JOIN company ON vouchers.company_id = company.id) WHERE email='${users.email}'`;
 
       		dbPool.query(queryString, (error, queryResult) => {
                         console.log("dbPool.query queryString", queryResult);
@@ -43,7 +44,7 @@ module.exports = (dbPool) => {
       			else {
       				bcrypt.compare(users.password, queryResult.rows[0].password, (err, res) => {
 
-      					callback(err, {authenticated: res, user_id: queryResult.rows[0].id, user_name: queryResult.rows[0].name, queryResult: queryResult.rows});
+      					callback(err, {authenticated: res, user_id: queryResult.rows[0].user_id, user_name: queryResult.rows[0].name, queryResult: queryResult.rows});
       				})
       			}
       		})
