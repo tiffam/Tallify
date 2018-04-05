@@ -17,10 +17,10 @@ module.exports = (dbPool) => {
 	        	const queryString = 'INSERT INTO users (name, email, password) VALUES ($1, $2, $3)';
 	        	const values = 
 	        	[
-	        	users.name,
-			    users.email,
-			    hashed
-			    ];
+                  users.name,
+                  users.email,
+                  hashed
+			];
 
 // execute query
 	      		dbPool.query(queryString, values, (error, queryResult) => {
@@ -31,20 +31,24 @@ module.exports = (dbPool) => {
       	},
 
       	logon: (users, callback) => {
-      		const queryString = `SELECT * FROM users WHERE email= '${users.email}'`;
+                  
+                  const queryString = `SELECT vouchers.company_id, vouchers.value, vouchers.expiry_date, users.name, company.id, company.company_name, company.company_image, company.shop_listing FROM ((vouchers INNER JOIN users ON vouchers.user_id = users.id) INNER JOIN company ON vouchers.company_id = company.id) WHERE email='${users.email}'`;
 
       		dbPool.query(queryString, (error, queryResult) => {
+                        console.log("dbPool.query queryString", queryResult);
+                        if(error){console.log("error in dbpool query", error)};
       			if(queryResult.rowCount ===0 ){
       				callback(error, {authenticated: false});
       			}
       			else {
       				bcrypt.compare(users.password, queryResult.rows[0].password, (err, res) => {
-      					callback(err, {authenticated: res, user_id: queryResult.rows[0].id, user_name: queryResult.rows[0].name});
+
+      					callback(err, {authenticated: res, user_id: queryResult.rows[0].id, user_name: queryResult.rows[0].name, queryResult: queryResult.rows});
       				})
       			}
       		})
       	}
-    }
+      }
 }
 
 
@@ -70,7 +74,24 @@ module.exports = (dbPool) => {
 
 
 
-      
+      /*logon: (users, vouchers, callback) => {
+                  const queryString2 = "SELECT vouchers.company_id, vouchers.value, vouchers.expiry_date, users.name, users.id users.email FROM vouchers INNER JOIN users ON vouchers.user_id = users.id WHERE email= '${users.email}'`;"
+                  const queryString = `SELECT * FROM users WHERE email= '${users.email}'`;
+
+                  dbPool.query(queryString, (error, queryResult) => {
+                        if(queryResult.rowCount ===0 ){
+                              callback(error, {authenticated: false});
+                        }
+                        else {
+                              bcrypt.compare(users.password, queryResult.rows[0].password, (err, res) => {
+                                    const queryString2 = "SELECT vouchers.company_id, vouchers.value, vouchers.expiry_date, users.name, users.id users.email FROM vouchers INNER JOIN users ON vouchers.user_id = users.id WHERE email= '${users.email}'`;"
+                                    dbPool.query(queryString2, (error2, queryResult2) => {
+                                          callback(err, {authenticated: res, user_id: queryResult.rows[0].id, user_name: queryResult.rows[0].name, company: queryResult2.rows[0].company_id});
+                                    })
+                              })
+                        }
+                  })
+            }*/
  
 
 

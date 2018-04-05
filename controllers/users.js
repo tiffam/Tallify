@@ -46,8 +46,22 @@ const logon = (request, response) => {
       else {
         response.cookie('loggedIn', true);
         response.cookie('userid', queryResult.user_id);
+        let companyArray = [];
+        let companyImageArray = [];
+        let array = []
+        for(let i=0; i<queryResult.queryResult.length; i++){
+          companyArray.push(queryResult.queryResult[i].company_id);
+          companyImageArray.push(queryResult.queryResult[i].company_image)
+          array.push(queryResult.queryResult[i]);
+          console.log("companyArray listing", array);
+          console.log("companyArray listing id", array[0].id);
+        }
         let context = {
-          name: queryResult.user_name
+          name: queryResult.user_name,
+          array: array
+          // company_id: companyArray,
+          // company_image: companyImageArray
+
         };
         response.render('main', context);
       }

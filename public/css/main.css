@@ -44,12 +44,11 @@ p {
 
 #box {
 	margin: 0 auto;
-	height: 300px;
+	height: 350px;
 	margin: 0 auto;
 	padding-top: 13px;
+	padding-bottom: 10px;
 	background-image: url("/tag3.jpg");
     background-size: cover;
 }
-
-
 
