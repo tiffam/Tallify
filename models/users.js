@@ -33,24 +33,25 @@ module.exports = (dbPool) => {
 
       	logon: (users, callback) => {
                   
-                  const queryString = `SELECT vouchers.company_id, vouchers.value, vouchers.expiry_date, vouchers.user_id, users.name, company.company_name, company.company_image, company.shop_listing FROM ((vouchers INNER JOIN users ON vouchers.user_id = users.id) INNER JOIN company ON vouchers.company_id = company.id) WHERE email='${users.email}'`;
+                  const queryString = `SELECT vouchers.company_id, vouchers.value, vouchers.expiry_date, vouchers.user_id, users.name, company.company_name, users.password, company.company_image, company.shop_listing FROM ((vouchers INNER JOIN users ON vouchers.user_id = users.id) INNER JOIN company ON vouchers.company_id = company.id) WHERE email='${users.email}'`;
 
       		dbPool.query(queryString, (error, queryResult) => {
                         console.log("dbPool.query queryString", queryResult);
                         if(error){console.log("error in dbpool query", error)};
       			if(queryResult.rowCount ===0 ){
+
       				callback(error, {authenticated: false});
       			}
       			else {
       				bcrypt.compare(users.password, queryResult.rows[0].password, (err, res) => {
-
-      					callback(err, {authenticated: res, user_id: queryResult.rows[0].user_id, user_name: queryResult.rows[0].name, queryResult: queryResult.rows});
-      				})
-      			}
-      		})
-      	}
+                                          callback(err, {authenticated: res, user_id: queryResult.rows[0].user_id, user_name: queryResult.rows[0].name, queryResult: queryResult.rows});
+                                    })
+                        }
+                  })
+            }
       }
 }
+
 
 
       			//if( res === true ){

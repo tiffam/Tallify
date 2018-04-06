@@ -27,7 +27,10 @@ const createFunction =  (request, response) => {
         console.log(queryResult);
         response.cookie('userid', queryResult.rows[0].id);
         console.log(queryResult);
-        response.render('main');
+        let context = {
+          message: "Welcome!"}
+
+        response.render('main', context);
       };
     }
   });
@@ -43,6 +46,7 @@ const logon = (request, response) => {
   allModels.users.logon(request.body, (error, queryResult) => {
     console.log("inside allmodels in queryResult", queryResult);
     if (queryResult.authenticated == false) {
+      console.log(queryResult.authenticated);
       response.redirect('new');}
       else {
         response.cookie('loggedIn', true);
@@ -56,23 +60,13 @@ const logon = (request, response) => {
         }
         let context = {
           name: queryResult.user_name,
-          array: array
-          // company_id: companyArray,
-          // company_image: companyImageArray
-
+          array: array,
+          message: "Welcome Back!"
         };
         response.render('main', context);
       }
     })
 };
-
-
-
-//Get homepage after logging in
-// const welcome = (request, response) => {
-// 	//add cookie after logging in successfully
-//   response.cookie('registered_user', 'true')
-// }
 
 /**
  * ===========================================
