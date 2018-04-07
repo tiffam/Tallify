@@ -2,11 +2,39 @@
 <html>
 <head>
 	<title>Register</title>
-	<link type="text/css" rel="stylesheet" href="css/main.css">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="/css/main.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Petit+Formal+Script" rel="stylesheet">
 </head>
 <body>
 	<div class="ui container">
+		<div id="logonform">
+			<form class="ui form" method="POST" action="/users/create">
+				<div> 
+					<p>Welcome to Tallify! Start your journey with us by creating an account</p>
+					<input id="preferredname" name="name" type="text" placeholder="Preferred Name">
+					<input id="emaillogin" name="email" type="text" placeholder="Email">
+					<input id="passwordlogin" name="password" type="text" placeholder="Password">
+				</div>
+				<input id="submitlogin" class="ui mini button" type="submit">
+			</form>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- <div class="ui container">
 		<h1>Welcome to Tallify! Start your journey with us by creating an account</h1>
 		<form method="POST" action="/users/create">
 			<div class="user-attribute">
@@ -22,8 +50,8 @@
 				<input name="password" type="text">
 			</div>
 			<input type="submit">
-		</form>
-	</div>
+		</form> -->
+	<!-- </div> -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
 </body>
 </html>

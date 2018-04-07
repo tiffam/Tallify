@@ -9,15 +9,16 @@
 	<div class="ui container">
 		<h1>Update your vouchers</h1>
 		<form class="ui tiny form" method="POST" action="/vouchers/main">
-			<!-- <div class="field">
-				<label>Voucher Issued By</label>
-				<select name="company_id" class="ui search dropdown">
-					<option value="">Select issuer</option>
-					<option value="1">Takashimaya</option>
-					<option value="2">NTUC</option>
-				</select>
-			</div> -->
+			<select class="ui dropdown">
+			  <option value="">Voucher Issuer</option>
+			  <option value="1">NTUC</option>
+			  <option value="0">Takashimaya</option>
+			</select>
+			<br>
+			<div class="field">
+			    <label>Details</label>
 			<div class="inline fields">
+
 				<div class="three wide field required">
 					<input type="text" placeholder="Issuer" name="company_id">
 				</div>
@@ -28,9 +29,38 @@
 					<input type="text" placeholder="Expiry Date" name="expiry_date">
 				</div>
 			</div>
+
+			  <div class="inline fields">
+			    <label>Form of voucher</label>
+			    <div class="field">
+			      <div class="ui radio checkbox">
+			        <input type="radio" name="hardcopy" tabindex="0" class="hidden">
+			        <label>Hardcopy</label>
+			      </div>
+			    </div>
+			    <div class="field">
+			      <div class="ui radio checkbox">
+			        <input type="radio" name="card" tabindex="0" class="hidden">
+			        <label>Gift card</label>
+			      </div>
+			    </div>
+			    <div class="field">
+			      <div class="ui radio checkbox">
+			        <input type="radio" name="e-voucher" tabindex="0" class="hidden">
+			        <label>E-voucher</label>
+			      </div>
+			    </div>
+			    <div class="field">
+			      <div class="ui radio checkbox">
+			        <input type="radio" name="e-card" tabindex="0" class="hidden">
+			        <label>E-gift card</label>
+			      </div>
+			    </div>
+			  </div>
+
 			<div class="field">
 				<label >Remarks</label>
-				<textarea name="remarks" rows="2"></textarea>
+				<textarea name="remarks" rows="2" ></textarea>
 			</div>
 			<input class="ui submit button" type="Submit">
 		</div>

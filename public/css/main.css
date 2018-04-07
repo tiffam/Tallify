@@ -1,21 +1,56 @@
 /*///////For user module \\\\\\\\*/
 
-#login_button, #register_button {
-	background-color: #F19F4D;
-	display: inline;
-	margin: 20px;
-	width: 100px;
-}
-
 .userlogin {
 	text-align: center;
 }
 
+#login_button, #register_button {
+	font-family: 'Petit Formal Script', cursive;
+}
+
+#buttons {
+	position: absolute;
+	margin: 0 auto;
+	padding-top: 20px;
+	padding-left: 80px;
+	font-size: 12px;
+}
+
+#description {
+	background-color: white;
+	opacity: 0.9;
+	width: 400px;
+	height: 150px;
+	margin: 0 auto;
+	top:50px;
+	padding: 10px;
+	font-family: 'Petit Formal Script', cursive;
+	font-size: 15px;
+
+}
+
+#footer {
+	text-align: left;
+	padding: 10px;
+	font-size: 10px;
+}
 
 /*///////For voucher module \\\\\\\\*/
 
-#welcome {
-	color: pink;
+#logonform {
+	width: 400px;
+	margin: 0 auto;
+	border: 1px solid lightgrey;
+	top: 100px;
+	background-color: #FFFAF0;
+	border-radius: 25px;
+}
+
+#emaillogin, #passwordlogin, #submitlogin, #preferredname {
+	margin: 10px;
+	width: 300px;
+	font-family: 'Petit Formal Script', cursive;
+
 }
 
 .sample_voucher {
@@ -28,14 +63,17 @@ div p, div {
 }
 p {
 	position: absolute;
-	top: 0;
+	top: 10px;
 	text-align: center;
-	color: #F19F4D;
+	font-family: 'Petit Formal Script', cursive;
+
 }
 
 .vouchers, #vouchers {
-	font-family: 'Source Sans Pro', sans-serif;
-	font-family: 'Oxygen', sans-serif;
+	/*font-family: 'Source Sans Pro', sans-serif;
+	font-family: 'Oxygen', sans-serif;*/
+	font-family: 'Petit Formal Script', cursive;
+	font-size: 10px;
 
 }
 #vouchers{
@@ -44,11 +82,11 @@ p {
 
 #box {
 	margin: 0 auto;
-	height: 250px;
+	height: 330px;
 	margin: 0 auto;
 	padding-top: 13px;
 	padding-bottom: 10px;
-	background-image: url("/tag3.jpg");
+	background-image: url("/tag4.jpg");
     background-size: cover;
 }
 
