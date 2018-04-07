@@ -26,7 +26,6 @@
 	padding: 10px;
 	font-family: 'Petit Formal Script', cursive;
 	font-size: 15px;
-
 }
 
 #footer {
@@ -55,6 +54,10 @@
 
 .sample_voucher {
 	text-align: center;
+}
+
+#cards {
+	width: 600px;
 }
 
 div p, div {
@@ -88,5 +91,19 @@ p {
 	padding-bottom: 10px;
 	background-image: url("/tag4.jpg");
     background-size: cover;
+
 }
 
+#message2 {
+	top: 50px;
+}
+
+#columngrid {
+	width: 700px;
+	margin: 0 auto;
+}
+
+#issuer, #expirydate, #vouchertype {
+	text-align: left;
+	font-family: 'Oxygen', sans-serif;
+}
