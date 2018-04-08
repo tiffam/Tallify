@@ -8,6 +8,7 @@ module.exports = (dbPool) => {
 	return {
 		saveVoucher: (vouchers, callback) => {
 			console.log("saveVoucher in models", vouchers.body);
+			console.log("saveVoucher in models", vouchers.cookies.userid);
 
 		// `dbPool` is accessible within this function scope
 
