@@ -15,14 +15,14 @@ module.exports = (allModels) => {
 
 	const saveVoucherFunction = (request, response) => {
 
-		allModels.vouchers.saveVoucher(request, (error, queryResult) => {
-			if(error){
-				response.end("Error")
-			} 
-				else {
-					allModels.vouchers.saveVoucher(request, (error2, queryResult2) => {
-			if(error2){
-				response.end("Error2");
+		// allModels.vouchers.saveVoucher(request, (error, queryResult) => {
+		// 	if(error){
+		// 		response.end("Error")
+		// 	} 
+		// 		else {
+					allModels.vouchers.saveVoucher(request, (error2, error, queryResult2, queryResult) => {
+			if(error2 || error){
+				response.end("Error");
 			} else {
 				let array = [];
 				for(i=0; i<queryResult2.rows.length; i++){
@@ -44,8 +44,8 @@ module.exports = (allModels) => {
 			}
 		})
 	}
-})
 }
+
 	
 
 		const usedVoucher = (request, response) => {
