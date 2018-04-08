@@ -7,8 +7,8 @@
 module.exports = (dbPool) => {
 	return {
 		saveVoucher: (vouchers, callback) => {
-			console.log("saveVoucher in models", vouchers.body);
-			console.log("saveVoucher in models", vouchers.cookies.userid);
+			// console.log("saveVoucher in models", vouchers.body);
+			// console.log("saveVoucher in models", vouchers.cookies.userid);
 
 		// `dbPool` is accessible within this function scope
 
@@ -26,8 +26,8 @@ module.exports = (dbPool) => {
 
 // execute query
 			dbPool.query(queryString, values, (error, queryResult) => {
-				console.log("queryResult inside voucher models db query", queryResult);
-				console.log("queryString inside voucher models db query", queryString);
+				// console.log("queryResult inside voucher models db query", queryResult);
+				// console.log("queryString inside voucher models db query", queryString);
 				if (error) { callback(error); 
 				}
 				else {
@@ -36,8 +36,8 @@ module.exports = (dbPool) => {
 					const queryString2 = `SELECT vouchers.company_id, vouchers.value, vouchers.id, vouchers.redeemed, vouchers.expiry_date, vouchers.user_id, company.company_name, company.company_image FROM ((vouchers INNER JOIN users ON vouchers.user_id = users.id) INNER JOIN company ON vouchers.company_id = company.id) WHERE vouchers.user_id='${vouchers.cookies.userid}';`;
 
 					dbPool.query(queryString2, (error2, queryResult2) => {
-						console.log("queryString2 inside db query 2 for vouchers model", queryString2);
-						console.log("queryResult2 inside db query 2 for vouchers model", queryResult2);
+						// console.log("queryString2 inside db query 2 for vouchers model", queryString2);
+						// console.log("queryResult2 inside db query 2 for vouchers model", queryResult2);
 						if (error2) { callback(error2); 
 						}
 						else {
