@@ -15,13 +15,18 @@ module.exports = (allModels) => {
 
 	const saveVoucherFunction = (request, response) => {
 
-		allModels.vouchers.saveVoucher(request, (error2, queryResult2) => {
+		allModels.vouchers.saveVoucher(request, (error, queryResult) => {
+			if(error){
+				response.end("Error")
+			} 
+				else {
+					allModels.vouchers.saveVoucher(request, (error2, queryResult2) => {
 			if(error2){
-				response.end("Error");
+				response.end("Error2");
 			} else {
 				let array = [];
 				for(i=0; i<queryResult2.rows.length; i++){
-					console.log("inside savevoucherfunction queryResult2.rows[i].redeemed", queryResult2.rows[i].redeemed);
+					// console.log("inside savevoucherfunction queryResult2.rows[i].redeemed", queryResult2.rows[i].redeemed);
 					queryResult2.rows[i].expiry_date = moment(queryResult2.rows[i].expiry_date).format('DD MMM YY');
 					if(queryResult2.rows[i].redeemed==="No"){
 						array.push(queryResult2.rows[i]);
@@ -30,9 +35,8 @@ module.exports = (allModels) => {
 
 				let context = {
 					array: array,
-					message: "added new voucher",
-					message2: "more"
-				}
+					message: "added new voucher"
+				};
 					
 
 					response.render('main', context);
@@ -40,6 +44,8 @@ module.exports = (allModels) => {
 			}
 		})
 	}
+})
+}
 	
 
 		const usedVoucher = (request, response) => {
