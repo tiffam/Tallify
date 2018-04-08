@@ -61,15 +61,14 @@ const logon = (request, response) => {
           if(queryResult.queryResult[i].redeemed==="No"){
             queryResult.queryResult[i].expiry_date = moment(queryResult.queryResult[i].expiry_date).format('DD MMM YY');
             array.push(queryResult.queryResult[i]);
-          };
-        }
-        
-        let context = {
-          array: array,
-          message: "Welcome Back!"
-        };
+            let context = {
+              array: array,
+              message: "Welcome Back!"
+            };
 
-        response.render('main', context);
+            response.render('main', context);
+          }
+        }
       }
     })
 };

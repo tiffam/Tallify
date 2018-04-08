@@ -28,15 +28,12 @@ module.exports = (allModels) => {
 					 
 					// console.log("queryResult2.rows[i].expiry_date", queryResult2.rows[0].expiry_date);
 
-				let context = {
-					array: array,
-					message: "added new voucher"
-				};
-					
-
-					
-					response.render('main', context);
-				}
+						let context = {
+							array: array,
+							message: "added new voucher"
+						};
+						response.render('main', context);
+					}
 				}
 			}
 		})
@@ -63,9 +60,9 @@ module.exports = (allModels) => {
 					};
 					response.render('main', context);
 				}
-				}
-			})
-		}
+			}
+		})
+	}
 
 
 
