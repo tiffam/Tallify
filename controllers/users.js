@@ -45,25 +45,25 @@ const loginForm = (request, response) => {
 
 //Post request for submitting completed login form
 const logon = (request, response) => {
-  allModels.users.logon(request.body, (error2, queryResult2) => {
+  allModels.users.logon(request.body, (error, queryResult) => {
     // console.log("inside allmodels in queryResult", queryResult);
     if (queryResult.authenticated == false) {
       console.log(queryResult.authenticated);
       response.redirect('new');}
       else {
         response.cookie('loggedIn', true);
-        response.cookie('userid', queryResult2.queryResult[0].user_id);
+        response.cookie('userid', queryResult.queryResult[0].user_id);
         let array = [];
-        for(let i=0; i<queryResult2.queryResult.length; i++){
-          if(queryResult2.queryResult[i].redeemed==="No")
-          {queryResult2.queryResult[i].expiry_date = moment(queryResult2.queryResult[i].expiry_date).format('DD MMM YY');
-          array.push(queryResult2.queryResult[i]);
+        for(let i=0; i<queryResult.queryResult.length; i++){
+          if(queryResult.queryResult[i].redeemed==="No")
+          {queryResult.queryResult[i].expiry_date = moment(queryResult.queryResult[i].expiry_date).format('DD MMM YY');
+          array.push(queryResult.queryResult[i]);
         };
       }
         
 
         let context = {
-          name: queryResult2.user_name,
+          name: queryResult.user_name,
           array: array,
           message: "Welcome Back!",
         };
