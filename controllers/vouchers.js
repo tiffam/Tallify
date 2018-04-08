@@ -34,7 +34,7 @@ module.exports = (allModels) => {
 				};
 					
 
-					response.redirect('main', context);
+					response.render('main', context);
 				}
 			}
 		})
