@@ -21,7 +21,7 @@ module.exports = (allModels) => {
 			} else {
 				let array = [];
 				for(i=0; i<queryResult2.rows.length; i++){
-					console.log("inside savevoucherfunction queryResult2.rows[i].redeemed", queryResult2.rows[i].redeemed);
+					// console.log("inside savevoucherfunction queryResult2.rows[i].redeemed", queryResult2.rows[i].redeemed);
 					queryResult2.rows[i].expiry_date = moment(queryResult2.rows[i].expiry_date).format('DD MMM YY');
 					if(queryResult2.rows[i].redeemed==="No"){
 						array.push(queryResult2.rows[i]);
@@ -31,10 +31,10 @@ module.exports = (allModels) => {
 				let context = {
 					array: array,
 					message: "added new voucher"
-				}
+				};
 					
 
-					response.render('main', context);
+					response.redirect('main', context);
 				}
 			}
 		})
