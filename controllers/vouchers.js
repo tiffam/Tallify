@@ -22,13 +22,12 @@ module.exports = (allModels) => {
 				let array = [];
 				for(i=0; i<queryResult2.rows.length; i++){
 					console.log("inside savevoucherfunction queryResult2.rows[i].redeemed", queryResult2.rows[i].redeemed);
-					if(queryResult2.rows[i].redeemed==="No");
-					{queryResult2.rows[i].expiry_date = moment(queryResult2.rows[i].expiry_date).format('DD MMM YY');
+					queryResult2.rows[i].expiry_date = moment(queryResult2.rows[i].expiry_date).format('DD MMM YY');
+					if(queryResult2.rows[i].redeemed==="No"){
+						array.push(queryResult2.rows[i]);
+					}; 
 					// console.log("queryResult2.rows[i].expiry_date", queryResult2.rows[0].expiry_date);
-					array.push(queryResult2.rows[i]);        
 
-
-				};
 				let context = {
 					array: array,
 					message: "added new voucher",
