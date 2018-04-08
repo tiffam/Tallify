@@ -54,11 +54,13 @@ const logon = (request, response) => {
         response.cookie('loggedIn', true);
         response.cookie('userid', queryResult.queryResult[0].user_id);
         let array = [];
-        let expiry=[]
         for(let i=0; i<queryResult.queryResult.length; i++){
-          queryResult.queryResult[i].expiry_date = moment(queryResult.queryResult[i].expiry_date).format('DD MMM YY')
+          if(queryResult.queryResult[i].redeemed==="No")
+          {queryResult.queryResult[i].expiry_date = moment(queryResult.queryResult[i].expiry_date).format('DD MMM YY');
           array.push(queryResult.queryResult[i]);
-        }
+        };
+      }
+        
 
         let context = {
           name: queryResult.user_name,

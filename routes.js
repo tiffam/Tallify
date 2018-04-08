@@ -29,6 +29,7 @@ module.exports = (app, allModels) => {
     app.post('/users/logout', users.logout);
 
 
+
       /*
    *  =========================================
    *  Vouchers
@@ -40,6 +41,6 @@ module.exports = (app, allModels) => {
 
     app.post('/vouchers/main', vouchers.saveVoucher);
 
-
+    app.post('/vouchers/usedVoucher', vouchers.usedVoucher);
 
 };

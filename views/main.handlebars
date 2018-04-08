@@ -74,10 +74,10 @@
         </div>
       </div>
       <br>
-        <div class="ui red bottom mini attached button">
-      <i class="minus icon"></i>
-      Used
-        </div>
+      <form method = "POST" action="/vouchers/usedVoucher">
+        <button id="usedVoucher" name="{{this.id}}" value="Yes" type="submit" class="ui fluid red bottom mini attached ui toggle button">Used
+        </button>
+        <form>
       </div>
     </div>
     
@@ -100,7 +100,6 @@
   })
 ;
 </script>
-
 
 </body>
 </html>

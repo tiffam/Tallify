@@ -33,7 +33,7 @@ module.exports = (dbPool) => {
 
       	logon: (users, callback) => {
                   
-                  const queryString = `SELECT vouchers.company_id, vouchers.value, vouchers.expiry_date, vouchers.user_id, users.name, company.company_name, users.password, company.company_image, company.shop_listing FROM ((vouchers INNER JOIN users ON vouchers.user_id = users.id) INNER JOIN company ON vouchers.company_id = company.id) WHERE email='${users.email}'`;
+                  const queryString = `SELECT vouchers.company_id, vouchers.id, vouchers.redeemed, vouchers.value, vouchers.expiry_date, vouchers.user_id, users.name, company.company_name, users.password, company.company_image, company.shop_listing FROM ((vouchers INNER JOIN users ON vouchers.user_id = users.id) INNER JOIN company ON vouchers.company_id = company.id) WHERE email='${users.email}'`;
 
       		dbPool.query(queryString, (error, queryResult) => {
                         console.log("dbPool.query queryString", queryResult);
