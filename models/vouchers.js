@@ -7,21 +7,24 @@
 module.exports = (dbPool) => {
 	return {
 		saveVoucher: (vouchers, callback) => {
-			console.log("saveVoucher in models");
+			console.log("saveVoucher in models", vouchers.body);
+
 		// `dbPool` is accessible within this function scope
 
-			const queryString = 'INSERT INTO vouchers (user_id, company_id, value, expiry_date, remarks) VALUES ($1, $2, $3, $4, $5) RETURNING id';
+			const queryString = 'INSERT INTO vouchers (user_id, company_id, value, expiry_date, remarks, voucher_type) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id';
 			const values = 
 			[
 			vouchers.cookies.userid,
 			vouchers.body.company_id,
 			vouchers.body.value,
 			vouchers.body.expiry_date,
-			vouchers.body.remarks
+			vouchers.body.remarks,
+			vouchers.body.voucher_type
 			];
 
 // execute query
 			dbPool.query(queryString, values, (error, queryResult) => {
+				console.log("queryResult", queryString);
 				if (error) { callback(error); 
 				}
 				else {

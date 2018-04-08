@@ -4,7 +4,7 @@
 	text-align: center;
 }
 
-#login_button, #register_button {
+#login_button, #register_button, #add_voucher {
 	font-family: 'Petit Formal Script', cursive;
 }
 
@@ -22,7 +22,7 @@
 	width: 400px;
 	height: 150px;
 	margin: 0 auto;
-	top:50px;
+	top:80px;
 	padding: 10px;
 	font-family: 'Petit Formal Script', cursive;
 	font-size: 15px;
@@ -45,7 +45,7 @@
 	border-radius: 25px;
 }
 
-#emaillogin, #passwordlogin, #submitlogin, #preferredname {
+#emaillogin, #passwordlogin, #submitlogin, #preferredname, #submit_voucher {
 	margin: 10px;
 	width: 300px;
 	font-family: 'Petit Formal Script', cursive;
@@ -106,4 +106,37 @@ p {
 #issuer, #expirydate, #vouchertype {
 	text-align: left;
 	font-family: 'Oxygen', sans-serif;
+}
+
+#add_voucher {
+	text-align: center;
+}
+
+#addvoucherheader {
+	margin: 10px;
+	font-family: 'Petit Formal Script', cursive;
+	font-size: 15px;
+}
+
+.ui.dropdown{
+	width: 291px;
+}
+
+#value_box {
+	margin-left: 50px;
+	margin-top: 10px;
+}
+
+.inline.fields>label, .ui.radio.checkbox label, .ui.form .field>label {
+	font-size: 10px;
+	font-family: 'Petit Formal Script', cursive;
+}
+
+.ui.radio.checkbox label, .ui.form .field>label {
+	font-weight: 700px;
+}
+
+#remarks {
+	width: 300px;
+	margin: 0 auto;
 }
