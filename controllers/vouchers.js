@@ -25,7 +25,7 @@ module.exports = (allModels) => {
 					queryResult2.rows[i].expiry_date = moment(queryResult2.rows[i].expiry_date).format('DD MMM YY');
 					if(queryResult2.rows[i].redeemed==="No"){
 						array.push(queryResult2.rows[i]);
-					}; 
+					 
 					// console.log("queryResult2.rows[i].expiry_date", queryResult2.rows[0].expiry_date);
 
 				let context = {
@@ -34,7 +34,9 @@ module.exports = (allModels) => {
 				};
 					
 
+					
 					response.render('main', context);
+				}
 				}
 			}
 		})
@@ -53,13 +55,14 @@ module.exports = (allModels) => {
 					// console.log("queryResult2.rows[i]", queryResult2.rows[0]);
 					if(queryResult2.rows[i].redeemed==="No") {
 						array.push(queryResult2.rows[i])};
-					}
+					
 
 					let context = {
 						array: array,
 						message: "Updated used voucher"
 					};
 					response.render('main', context);
+				}
 				}
 			})
 		}
