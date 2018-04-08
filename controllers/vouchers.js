@@ -59,7 +59,7 @@ module.exports = (allModels) => {
 						array: array,
 						message: "Updated used voucher"
 					};
-					response.redirect('main', context);
+					response.render('main', context);
 				}
 			})
 		}
