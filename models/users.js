@@ -32,7 +32,7 @@ module.exports = (dbPool) => {
       	},
 
       	logon: (users, callback) => {
-                  const queryString = `SELECT * FROM vouchers WHERE email='${users.email}'`
+                  const queryString = `SELECT * FROM users WHERE email='${users.email}'`
 
                   dbPool.query(queryString, (error, queryResult) => {
                         console.log("dbPool.query queryString", queryResult);
