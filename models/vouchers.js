@@ -12,7 +12,7 @@ module.exports = (dbPool) => {
 
 		// `dbPool` is accessible within this function scope
 
-			const queryString = 'INSERT INTO vouchers (user_id, company_id, value, expiry_date, remarks, voucher_type, redeemed) VALUES ($1, $2, $3, $4, $5, $6, $7)';
+			const queryString = 'INSERT INTO vouchers (user_id, company_id, value, expiry_date, remarks, voucher_type, redeemed) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id';
 			const values = 
 			[
 			vouchers.cookies.userid,
@@ -25,7 +25,7 @@ module.exports = (dbPool) => {
 			];
 
 // execute query
-			dbPool.query(queryString, (error, queryResult) => {
+			dbPool.query(queryString, values, (error, queryResult) => {
 				console.log("queryResult inside voucher models db query", queryResult);
 				console.log("queryString inside voucher models db query", queryString);
 				if (error) { callback(error); 
