@@ -31,7 +31,7 @@ module.exports = (allModels) => {
 				let context = {
 					array: array,
 					message: "added new voucher",
-					message2: "more",
+					message2: "more"
 				}
 					
 
