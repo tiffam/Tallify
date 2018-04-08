@@ -49,26 +49,26 @@ const logon = (request, response) => {
     // console.log("inside allmodels in queryResult", queryResult);
     if (queryResult.authenticated == false) {
       // console.log(queryResult.authenticated);
-      response.redirect('new');
-    }
+      response.redirect('new');}
       else {
         response.cookie('loggedIn', true);
         // console.log('userid from logon controller', queryResult.queryResult[0].id);
         response.cookie('userid', queryResult.queryResult[0].user_id);
         let array = [];
-
+        
         for(let i=0; i<queryResult.queryResult.length; i++){
-          if(queryResult.queryResult[i].redeemed==="No"){
-            queryResult.queryResult[i].expiry_date = moment(queryResult.queryResult[i].expiry_date).format('DD MMM YY');
-            array.push(queryResult.queryResult[i]);
-            let context = {
-              array: array,
-              message: "Welcome Back!"
-            };
+          if(queryResult.queryResult[i].redeemed==="No")
+          {queryResult.queryResult[i].expiry_date = moment(queryResult.queryResult[i].expiry_date).format('DD MMM YY');
+          array.push(queryResult.queryResult[i]);
+        };
+      }
+        
+        let context = {
+          array: array,
+          message: "Welcome Back!"
+        };
 
-            response.render('main', context);
-          }
-        }
+        response.render('main', context);
       }
     })
 };
