@@ -26,6 +26,8 @@ module.exports = (app, allModels) => {
     
     app.post('/users/create', users.create);
 
+    app.post('/users/logout', users.logout);
+
 
       /*
    *  =========================================

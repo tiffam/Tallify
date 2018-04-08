@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Logout</title>
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Petit+Formal+Script" rel="stylesheet">
+</head>
+<body>
+	<div id="background_logos"> </div>
+	<div id="logout_message" class="ui container">
+		<div id="logonform">
+			<form class="ui form" method="POST" action="/users/logon">
+				<div>
+					<p>Thanks for using Tallify!</p>
+					<p>Stay tune for upcoming discounts on vouchers and giftcards with our retail partners in June.</p>
+					<p>If you wish to return to your account, you can login again</p>
+					<input id="emaillogin" name="email" type="text" placeholder="Email">
+					<input id="passwordlogin" name="password" type="text" placeholder="Password">
+				</div>
+				<input id="submitlogin" class="ui mini button" type="submit">
+			</form>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+</body>
+</html>

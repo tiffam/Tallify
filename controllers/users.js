@@ -71,6 +71,14 @@ const logon = (request, response) => {
     })
 };
 
+const logout = (request, response) => {
+  console.log("inside logout");
+  response.clearCookie('loggedIn');
+  response.clearCookie('userid');
+  response.render('logout');
+}
+
+
 /**
  * ===========================================
  * Export controller functions as a module
@@ -79,7 +87,7 @@ const logon = (request, response) => {
 	return {
 	  newForm : newForm,
 	  create : createFunction,
-	  // logout,
+	  logout: logout,
 	  // loginForm,
     logon: logon,
 	  loginForm: loginForm

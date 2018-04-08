@@ -4,7 +4,7 @@
 	text-align: center;
 }
 
-#login_button, #register_button, #add_voucher {
+#login_button, #register_button, #add_voucher, #logout_button {
 	font-family: 'Petit Formal Script', cursive;
 }
 
@@ -34,6 +34,20 @@
 	font-size: 10px;
 }
 
+#background_logos {
+	background-image: url("/companies_logo.jpg");
+    background-size: cover;
+    height: 650px;
+    z-index: 3;
+    opacity: 0.2;
+}
+
+#logout_message {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 70px;
+}
 /*///////For voucher module \\\\\\\\*/
 
 #logonform {
