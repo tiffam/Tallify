@@ -48,7 +48,7 @@ const logon = (request, response) => {
   allModels.users.logon(request.body, (error, queryResult) => {
     // console.log("inside allmodels in queryResult", queryResult);
     if (queryResult.authenticated == false) {
-      console.log(queryResult.authenticated);
+      // console.log(queryResult.authenticated);
       response.redirect('new');}
       else {
         response.cookie('loggedIn', true);
@@ -62,11 +62,10 @@ const logon = (request, response) => {
         };
       }
         
-
         let context = {
           name: queryResult.user_name,
           array: array,
-          message: "Welcome Back!",
+          message: "Welcome Back!"
         };
 
         response.render('main', context);
@@ -91,7 +90,6 @@ const logout = (request, response) => {
 	  newForm : newForm,
 	  create : createFunction,
 	  logout: logout,
-	  // loginForm,
     logon: logon,
 	  loginForm: loginForm
 	};
