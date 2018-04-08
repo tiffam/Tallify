@@ -48,11 +48,13 @@ module.exports = (dbPool) => {
       				bcrypt.compare(users.password, queryResultCheck.rows[0].password, (err, res) => {
                                     // if(queryResult.rowCount===undefined){
                                           console.log("queryResult.rowCount inside logon of 2nd dbpool", queryResult.rowCount);
-                                          callback(err, {authenticated: res, user_id: queryResultCheck.rows[0].id, user_name: queryResultCheck.rows[0].name, queryResult: queryResultCheck.rows});}
+                                          console.log("queryResultCheck.rowCount inside logon of 2nd dbpool", queryResultCheck.rowCount);
+                                          callback(err, {authenticated: res, user_id: queryResultCheck.rows[0].id, user_name: queryResultCheck.rows[0].name, queryResult: queryResultCheck.rows});
+                                    }
                                     //       else {
                                     //       // callback(err, {authenticated: res, user_id: queryResult.rows[0].user_id, user_name: queryResult.rows[0].name, queryResult: queryResult.rows});
                                     // }
-                              })
+                              )
                         })
 
                   }
@@ -60,6 +62,7 @@ module.exports = (dbPool) => {
       }
 }
 }
+
 
 
 
