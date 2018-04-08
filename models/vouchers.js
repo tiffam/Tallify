@@ -33,7 +33,7 @@ module.exports = (dbPool) => {
 					const queryString2 = `SELECT vouchers.company_id, vouchers.redeemed, vouchers.value, vouchers.expiry_date, vouchers.user_id, users.name, company.company_name, company.company_image, company.shop_listing FROM ((vouchers INNER JOIN users ON vouchers.user_id = users.id) INNER JOIN company ON vouchers.company_id = company.id) WHERE vouchers.user_id='${vouchers.cookies.userid}';`;
 					dbPool.query(queryString2, (error2, queryResult2) => {
 						console.log("queryResult2 inside db query 2 for vouchers model", queryResult2);
-						if (error) { callback(error2); 
+						if (error2) { callback(error2); 
 						}
 						else {
 				      		// invoke callback function with results after query has executed

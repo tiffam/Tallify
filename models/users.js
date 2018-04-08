@@ -25,7 +25,7 @@ module.exports = (dbPool) => {
 // execute query
 	      	dbPool.query(queryString, values, (error, queryResult) => {
 	      			// invoke callback function with results after query has executed
-                        console.log("queryResult from models users", queryResult);
+                        // console.log("queryResult from models users", queryResult);
 	      		callback(error, queryResult);
                   });
             });
@@ -47,8 +47,8 @@ module.exports = (dbPool) => {
                               dbPool.query(queryString, (error, queryResult) => {
       				bcrypt.compare(users.password, queryResultCheck.rows[0].password, (err, res) => {
                                     if(queryResult.rowCount===0){
-                                          console.log("queryResult.rowCount inside logon of 2nd dbpool", queryResult.rowCount);
-                                          console.log("queryResultCheck.rowCount inside logon of 2nd dbpool", queryResultCheck.rowCount);
+                                          // console.log("queryResult.rowCount inside logon of 2nd dbpool", queryResult.rowCount);
+                                          // console.log("queryResultCheck.rowCount inside logon of 2nd dbpool", queryResultCheck.rowCount);
                                           callback(err, {authenticated: res, user_id: queryResultCheck.rows[0].id, user_name: queryResultCheck.rows[0].name, queryResult: queryResultCheck.rows});
                                     }
                                           else {
