@@ -25,5 +25,8 @@
     "express-handlebars": "^3.0.0",
     "method-override": "^2.3.10",
     "moment": "^2.22.0"
+  },
+    "scripts": {
+    "start": "node index.js"
   }
 }
