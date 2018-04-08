@@ -37,7 +37,7 @@ module.exports = (dbPool) => {
 
       		dbPool.query(queryStringCheck, (errorCheck, queryResultCheck) => {
                         console.log("dbPool.query queryStringCheck", queryResultCheck);
-                        if(errorCheck){console.log("error in dbpool query", error)};
+                        if(errorCheck){console.log("error in dbpool query", errorCheck)};
       			if(queryResultCheck.rowCount ===0 ){
       				callback(errorCheck, {authenticated: false});
       			}
