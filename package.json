@@ -4,7 +4,7 @@
   "description": "Tally your vouchers with Tallify",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -26,10 +26,6 @@
     "method-override": "^2.3.10",
     "moment": "^2.22.0"
   },
-    "scripts": {
-    "start": "node index.js"
-  },
-
   "engines" : {
     "node" : "^9.8.0"
   }
