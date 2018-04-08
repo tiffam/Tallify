@@ -23,13 +23,13 @@ module.exports = (dbPool) => {
 			];
 
 // execute query
-	      		dbPool.query(queryString, values, (error, queryResult) => {
+	      	dbPool.query(queryString, values, (error, queryResult) => {
 	      			// invoke callback function with results after query has executed
-                              console.log("queryResult from models users", queryResult);
-	      			callback(error, queryResult);
-	      		});
-	      	});
-      	},
+                        console.log("queryResult from models users", queryResult);
+	      		callback(error, queryResult);
+                  });
+            });
+            },
 
       	logon: (users, callback) => {
                   const queryStringCheck = `SELECT * FROM users WHERE email='${users.email}'`;
@@ -37,16 +37,23 @@ module.exports = (dbPool) => {
 
       		dbPool.query(queryStringCheck, (errorCheck, queryResultCheck) => {
                         console.log("dbPool.query queryStringCheck", queryResultCheck);
-                        if(errorCheck){console.log("error in dbpool query", errorCheck)};
-      			if(queryResultCheck.rowCount===0 || queryResultCheck.rowCount===undefined ){
+                        if(errorCheck){console.log("error in dbpool query", errorCheck)
+                        };
+
+                        if(queryResultCheck.rowCount===0){
       				callback(errorCheck, {authenticated: false});
-      			}
-      			else {
+                        }
+                        else {
                               dbPool.query(queryString, (error, queryResult) => {
       				bcrypt.compare(users.password, queryResultCheck.rows[0].password, (err, res) => {
+                                    if(queryResult.rowCount===undefined){
+                                          callback(err, {authenticated: res, user_id: queryResultCheck.rows[0].id, user_name: queryResultCheck.rows[0].name, queryResult: queryResultCheck.rows});}
+                                          else {
                                           callback(err, {authenticated: res, user_id: queryResult.rows[0].user_id, user_name: queryResult.rows[0].name, queryResult: queryResult.rows});
-                                    })
+                                    }
+                              })
                         })
+
                   }
             })
       }
