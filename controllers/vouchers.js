@@ -57,7 +57,7 @@ module.exports = (allModels) => {
 				};
 				let context = {
 					array: array,
-					message: "Updated used voucher",
+					message: "Updated used voucher"
 				}
 
 					response.render('main', context);
