@@ -53,7 +53,7 @@ const logon = (request, response) => {
       else {
         response.cookie('loggedIn', true);
         console.log('userid from logon controller', queryResult.queryResult[0].id);
-        response.cookie('userid', queryResult.queryResult[0].id);
+        response.cookie('userid', user_id);
         let array = [];
         for(let i=0; i<queryResult.queryResult.length; i++){
           if(queryResult.queryResult[i].redeemed==="No")
