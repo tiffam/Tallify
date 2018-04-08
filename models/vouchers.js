@@ -38,13 +38,13 @@ module.exports = (dbPool) => {
 					dbPool.query(queryString2, (error2, queryResult2) => {
 						console.log("queryString2 inside db query 2 for vouchers model", queryString2);
 						console.log("queryResult2 inside db query 2 for vouchers model", queryResult2);
-						// if (error2) { callback(error2); 
-						// }
-						// else {
+						if (error2) { callback(error2); 
+						}
+						else {
 				      		// invoke callback function with results after query has executed
 				      		callback(error2, queryResult2);
 				      		// console.log(queryResult2);
-				      	// };
+				      	};
 				      })
 				}
 			})
