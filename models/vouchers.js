@@ -27,6 +27,7 @@ module.exports = (dbPool) => {
 // execute query
 			dbPool.query(queryString, (error, queryResult) => {
 				console.log("queryResult inside voucher models db query", queryResult);
+				console.log("queryString inside voucher models db query", queryString);
 				if (error) { callback(error); 
 				}
 				else {
