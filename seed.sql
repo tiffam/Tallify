@@ -47,11 +47,11 @@ VALUES
 INSERT INTO company
 (company_name, company_image, shop_listing)
 VALUES
-('NTUC', 'public/fairprice.jpeg', 'https://www.google.com.sg/maps/search/NTUC/');
+('NTUC', '/fairprice.jpeg', 'https://www.google.com.sg/maps/search/NTUC/');
 
 INSERT INTO company
 (company_name, company_image, shop_listing)
 VALUES
-('Takashimaya', 'public/takashimaya.png', 'https://www.google.com.sg/maps/search/takashimaya/');
+('Takashimaya', '/takashimaya.png', 'https://www.google.com.sg/maps/search/takashimaya/');
 
 

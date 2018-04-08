@@ -52,6 +52,7 @@ const logon = (request, response) => {
       response.redirect('new');}
       else {
         response.cookie('loggedIn', true);
+        console.log('userid from logon controller', queryResult.queryResult[0]);
         response.cookie('userid', queryResult.queryResult[0].user_id);
         let array = [];
         for(let i=0; i<queryResult.queryResult.length; i++){

@@ -13,7 +13,8 @@ CREATE TABLE IF NOT EXISTS vouchers(
 	redeemed varchar(255),
 	remarks TEXT,
 	user_id INTEGER,
-	company_id INTEGER
+	company_id INTEGER,
+	voucher_type TEXT
 );
 
 CREATE TABLE IF NOT EXISTS company (
