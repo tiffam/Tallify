@@ -20,15 +20,16 @@ if( process.env.DATABASE_URL ){
     ssl: true
   };
 
-  }else{
+  } 
+  else {
+  	const configs = {
+	  user: 'smu',
+	  host: '127.0.0.1',
+	  database: 'Tallify',
+	  port: 5432
+	};
+}
 
-
-const configs = {
-  user: 'smu',
-  host: '127.0.0.1',
-  database: 'Tallify',
-  port: 5432
-};
 
 const pool = new pg.Pool(configs);
 
