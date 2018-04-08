@@ -51,14 +51,14 @@ module.exports = (allModels) => {
 				for(i=0; i<queryResult2.rows.length; i++){
 					queryResult2.rows[i].expiry_date = moment(queryResult2.rows[i].expiry_date).format('DD MMM YY');
 					// console.log("queryResult2.rows[i]", queryResult2.rows[0]);
-					if(queryResult2.rows[i].redeemed==="No"){
-					array.push(queryResult2.rows[i])};
-				};
-				let context = {
-					array: array,
-					message: "Updated used voucher"
-				}
+					if(queryResult2.rows[i].redeemed==="No") {
+						array.push(queryResult2.rows[i])};
+					}
 
+					let context = {
+						array: array,
+						message: "Updated used voucher"
+					};
 					response.render('main', context);
 				}
 			})
