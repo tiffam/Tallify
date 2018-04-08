@@ -21,9 +21,10 @@ module.exports = (allModels) => {
 			} else {
 				let array = [];
 				for(i=0; i<queryResult2.rows.length; i++){
+					console.log("inside savevoucherfunction queryResult2.rows[i].redeemed", queryResult2.rows[i].redeemed);
 					if(queryResult2.rows[i].redeemed==="No");
 					{queryResult2.rows[i].expiry_date = moment(queryResult2.rows[i].expiry_date).format('DD MMM YY');
-					console.log("queryResult2.rows[i].expiry_date", queryResult2.rows[0].expiry_date);
+					// console.log("queryResult2.rows[i].expiry_date", queryResult2.rows[0].expiry_date);
 					array.push(queryResult2.rows[i]);        
 
 
