@@ -32,7 +32,6 @@ module.exports = (allModels) => {
 					array: array,
 					message: "added new voucher",
 					message2: "more",
-					name: array[0].name
 				}
 					
 
