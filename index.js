@@ -34,6 +34,13 @@ app.get('/', (request, response) => {
     response.render('home');
   });
 
+
+//To avoid all favicon error messages
+
+app.get('/favicon.ico', function(req, res) {
+    res.status(204);
+});
+
 // Catch all unmatched requests and return 404 not found page
 app.get('*', (request, response) => {
   response.render('404');
