@@ -1,9 +1,11 @@
 # Tallify
 Tally your vouchers with Tallify - a web app that records your vouchers so that you can track them easily. 
 
-New vouchers can be created on the fly, and you can update their status as 'used' when you redeem them at the shops. Vouchers can be categorised into 4 different types: vouchers, gift cards, electronic vouchers and electronic gift cards.
+Tracking your vouchers is easy and intuitive on Tallify. You can create your vouchers in a few clicks. Vouchers can be categorised as vouchers, gift cards, electronic vouchers and electronic gift cards. Once redeemed at the stores, you can tally your vouchers by indicating that they have been redeemed on the app.
 
-In the next phase of development, you can edit vouchers, create vouchers for an expanded group of companies, and include companies that are not in our database.
+More functionalities will be introduced in Version 2.0. For instance, you will be able to edit vouchers' content, create vouchers for an expanded group of companies, including companies that are not in our database. Embedded shop listings will also be rolled out for users to easily make reference to the nearest store in their neighbourhood.
+
+Register for a new account and stay tune to our updates!
 
 ## Getting Started
 Launch the web app [here](https://intense-refuge-69440.herokuapp.com/).
