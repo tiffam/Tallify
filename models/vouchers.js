@@ -33,7 +33,7 @@ module.exports = (dbPool) => {
 				else {
 					// console.log("vouchers.cookies.userid from vouchers", vouchers.cookies.userid);
 					// const queryString2 = `SELECT vouchers.company_id, vouchers.redeemed, vouchers.value, vouchers.expiry_date, vouchers.user_id, users.name, company.company_name, company.company_image, company.shop_listing FROM ((vouchers INNER JOIN users ON vouchers.user_id = users.id) INNER JOIN company ON vouchers.company_id = company.id) WHERE vouchers.user_id='${vouchers.cookies.userid}';`;
-					const queryString2 = `SELECT vouchers.company_id, vouchers.value, vouchers.id, vouchers.redeemed, vouchers.expiry_date, vouchers.user_id, company.company_name, company.company_image FROM ((vouchers INNER JOIN users ON vouchers.user_id = users.id) INNER JOIN company ON vouchers.company_id = company.id) WHERE vouchers.user_id='${vouchers.cookies.userid}';`;
+					const queryString2 = `SELECT vouchers.company_id, vouchers.value, vouchers.id, vouchers.redeemed, vouchers.voucher_type, vouchers.expiry_date, vouchers.user_id, company.company_name, company.company_image FROM ((vouchers INNER JOIN users ON vouchers.user_id = users.id) INNER JOIN company ON vouchers.company_id = company.id) WHERE vouchers.user_id='${vouchers.cookies.userid}';`;
 
 					dbPool.query(queryString2, (error2, queryResult2) => {
 						// console.log("queryString2 inside db query 2 for vouchers model", queryString2);
