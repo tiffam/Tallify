@@ -32,6 +32,7 @@
 	text-align: left;
 	padding: 10px;
 	font-size: 10px;
+	font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
 }
 
 #background_logos {
@@ -155,6 +156,3 @@ p {
 	margin: 0 auto;
 }
 
-#usedVoucher {
-	
-}
