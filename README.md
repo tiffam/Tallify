@@ -6,7 +6,10 @@ A web app to record your vouchers so that you can track them easily.
 Launch the web app [here](https://intense-refuge-69440.herokuapp.com/).
 
 ## Installation
-Packages required: Express, Express-handlebars, Body-Parser, Moment, cookie, MethodOverride, Postgres
+
+1.  Run `yarn install` to install dependencies including:
+
+Express, Express-handlebars, Body-Parser, Moment, cookie, MethodOverride, Postgres
 
 ## Built With
 
